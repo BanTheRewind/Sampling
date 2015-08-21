@@ -76,7 +76,7 @@ class ExcProcNotFound : public Exception
 public:
 	ExcProcNotFound( size_t index ) throw()
 	{
-		sprintf_s( mMessage, "Process not found: %i", index );
+		printf( mMessage, "Process not found: %i", index );
 	}
 };
 
@@ -85,7 +85,7 @@ class ExcProcUndefined : public Exception
 public:
 	ExcProcUndefined( size_t index ) throw()
 	{
-		sprintf_s( mMessage, "Process is undefined: %i", index );
+		printf( mMessage, "Process is undefined: %i", index );
 	}
 };
 
