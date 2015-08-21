@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (c) 2014, Ban the Rewind
+ * Copyright (c) 2015, Ban the Rewind
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or
@@ -96,8 +96,8 @@ class SamplerT
 {
 protected:
 	size_t									mNumSamples;
-	std::vector<T>							mSamples;
 	std::map<size_t, std::function<Y()> >	mProcessMap;
+	std::vector<T>							mSamples;
 
 	inline void fit()
 	{
@@ -116,6 +116,19 @@ public:
 	SamplerT( size_t numSamples = 2 )
 		: mNumSamples( numSamples )
 	{
+	}
+	
+	SamplerT( const SamplerT& rhs )
+	{
+		*this = rhs;
+	}
+	
+	SamplerT& operator=( const SamplerT& rhs )
+	{
+		mNumSamples	= rhs.mNumSamples;
+		mProcessMap	= rhs.mProcessMap;
+		mSamples	= rhs.mSamples;
+		return *this;
 	}
 
 	inline void	clearProcesses()
