@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (c) 2015, Ban the Rewind
+ * Copyright (c) 2016, Ban the Rewind
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or
@@ -128,6 +128,12 @@ public:
 		mNumSamples	= rhs.mNumSamples;
 		mProcessMap	= rhs.mProcessMap;
 		mSamples	= rhs.mSamples;
+		return *this;
+	}
+
+	inline SamplerT& process( size_t index, const std::function<Y()>& func )
+	{
+		setProcess( index, func );
 		return *this;
 	}
 
